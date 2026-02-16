@@ -1,0 +1,226 @@
+/* styles/Home.module.css */
+
+.page {
+  min-height: 100vh;
+  background: radial-gradient(1200px 600px at 20% 0%, #eaf6ff 0%, #fbf6ea 45%, #fff 100%);
+  color: #22313f;
+  font-family: ui-serif, Georgia, "Times New Roman", Times, serif;
+}
+
+.container {
+  width: min(1100px, 92vw);
+  margin: 0 auto;
+  padding: 18px 0 70px;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 10px 0 18px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  font-size: 22px;
+}
+
+.brandIcon {
+  font-size: 22px;
+}
+
+.menu {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+  font-size: 18px;
+}
+
+.menu a {
+  color: #334a5f;
+  text-decoration: none;
+  padding: 8px 10px;
+  border-radius: 999px;
+}
+
+.menu a:hover {
+  background: rgba(255, 255, 255, 0.65);
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 22px;
+  align-items: center;
+  background: rgba(255,255,255,0.55);
+  border: 1px solid rgba(130, 160, 190, 0.28);
+  border-radius: 22px;
+  padding: 28px;
+  box-shadow: 0 18px 40px rgba(25, 55, 90, 0.12);
+  backdrop-filter: blur(6px);
+}
+
+.kicker {
+  color: #7d6a33;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+
+.h1 {
+  font-size: clamp(40px, 5vw, 64px);
+  line-height: 1.02;
+  margin: 0 0 14px;
+  color: #1f2f3f;
+}
+
+.h1 span {
+  color: #caa349; /* dourado */
+}
+
+.sub {
+  margin: 0 0 18px;
+  font-size: 18px;
+  line-height: 1.5;
+  color: #2d4054;
+}
+
+.ctaRow {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-top: 8px;
+}
+
+.btnGold {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 18px;
+  border-radius: 999px;
+  background: linear-gradient(#f7dc92, #caa349);
+  color: #1f2b36;
+  text-decoration: none;
+  font-weight: 800;
+  box-shadow: 0 12px 26px rgba(140, 95, 10, 0.25);
+  border: 1px solid rgba(160, 120, 40, 0.35);
+}
+
+.btnGold:hover { filter: brightness(1.03); }
+
+.btnGhost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 16px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.65);
+  color: #2a3e53;
+  text-decoration: none;
+  font-weight: 700;
+  border: 1px solid rgba(120, 150, 180, 0.35);
+}
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.step {
+  background: rgba(255,255,255,0.75);
+  border: 1px solid rgba(120, 150, 180, 0.25);
+  border-radius: 14px;
+  padding: 10px 12px;
+  text-align: center;
+  font-weight: 700;
+  color: #2a3e53;
+}
+
+.heroArt {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid rgba(120, 150, 180, 0.25);
+  box-shadow: 0 16px 34px rgba(20, 40, 70, 0.14);
+  background: #fff;
+}
+
+.heroArt img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.sectionTitleWrap {
+  margin: 36px 0 16px;
+  text-align: center;
+}
+
+.sectionTitle {
+  font-size: clamp(30px, 4vw, 48px);
+  margin: 0 0 10px;
+  color: #1f2f3f;
+}
+
+.sectionSub {
+  margin: 0;
+  color: #2d4054;
+  font-size: 18px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.card {
+  background: rgba(255,255,255,0.70);
+  border: 1px solid rgba(120, 150, 180, 0.25);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 14px 30px rgba(20, 40, 70, 0.10);
+}
+
+.thumb {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  background: #fff;
+}
+
+.thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.cardTitle {
+  padding: 12px 14px 16px;
+  text-align: center;
+  font-weight: 800;
+  color: #23384c;
+  font-size: 18px;
+}
+
+@media (max-width: 900px) {
+  .hero { grid-template-columns: 1fr; }
+  .steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 520px) {
+  .grid { grid-template-columns: 1fr; }
+}
