@@ -1,15 +1,153 @@
-html, html, body {
-  margin: 0;
-  padding: 0;
-  font-family: ui-sans-serif, system-ui, -apple-system;
-  background: #fbfaf7;
+:root{
+  --bg: #fbf7f0;
+  --card: rgba(255,255,255,0.78);
+  --stroke: rgba(120, 110, 90, 0.18);
+  --text: #1f2937;
+  --muted: rgba(31,41,55,0.72);
+  --gold1: #f2d28b;
+  --gold2: #c89b3c;
+  --shadow: 0 18px 50px rgba(20, 12, 6, 0.12);
+  --radius: 18px;
 }
 
-* {
-  box-sizing: border-box;
+html, body { margin:0; padding:0; font-family: ui-sans-serif, system-ui, -apple-system; background: var(--bg); color: var(--text); }
+*{ box-sizing:border-box; }
+a{ color: inherit; text-decoration: none; }
+button{ font-family: inherit; }
+
+.container{ max-width: 1050px; margin: 0 auto; padding: 18px; }
+
+.nav{
+  display:flex; align-items:center; justify-content:space-between;
+  padding: 12px 0 6px;
+}
+.nav a{ font-weight: 700; opacity: .9; }
+.navLinks{ display:flex; gap: 16px; align-items:center; }
+
+.hero{
+  position: relative;
+  margin-top: 12px;
+  border-radius: 26px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--stroke);
+  background: radial-gradient(1200px 700px at 30% 20%, rgba(255,255,255,.88), rgba(255,255,255,.58)),
+              linear-gradient(135deg, rgba(120,160,255,.18), rgba(255,205,140,.14));
 }
 
-a {
-  text-decoration: none;
-  color: inherit;
+.heroInner{
+  display:grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 18px;
+  padding: 26px;
+}
+
+.kicker{
+  display:inline-flex; gap:8px; align-items:center;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.7);
+  border: 1px solid var(--stroke);
+  font-weight: 800;
+  width: fit-content;
+}
+
+.h1{
+  font-size: 44px;
+  line-height: 1.05;
+  margin: 14px 0 10px;
+  letter-spacing: -0.02em;
+}
+.sub{
+  font-size: 18px;
+  color: var(--muted);
+  margin: 0 0 18px;
+  max-width: 560px;
+}
+
+.ctaRow{ display:flex; gap: 12px; flex-wrap: wrap; align-items:center; }
+
+.btnGold{
+  display:inline-flex; align-items:center; justify-content:center;
+  padding: 12px 18px;
+  border-radius: 999px;
+  border: 1px solid rgba(120, 90, 20, 0.28);
+  background: linear-gradient(180deg, var(--gold1), var(--gold2));
+  box-shadow: 0 10px 20px rgba(200,155,60,0.18);
+  font-weight: 900;
+}
+.btnGhost{
+  display:inline-flex; align-items:center; justify-content:center;
+  padding: 12px 18px;
+  border-radius: 999px;
+  border: 1px solid var(--stroke);
+  background: rgba(255,255,255,.68);
+  font-weight: 900;
+}
+
+.heroArt{
+  position: relative;
+  border-radius: 22px;
+  border: 1px solid var(--stroke);
+  background:
+    radial-gradient(600px 300px at 30% 20%, rgba(255,255,255,.9), rgba(255,255,255,.6)),
+    url("/hero.jpg");
+  background-size: cover;
+  background-position: center;
+  min-height: 260px;
+  box-shadow: 0 16px 40px rgba(20,12,6,0.10);
+}
+
+.steps{
+  display:flex; gap: 14px; flex-wrap: wrap;
+  padding: 16px 0 0;
+  color: rgba(31,41,55,.78);
+  font-weight: 800;
+}
+.step{
+  display:flex; gap:10px; align-items:center;
+  padding: 10px 12px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.65);
+  border: 1px solid var(--stroke);
+}
+
+.sectionTitle{
+  margin: 26px 0 12px;
+  font-size: 26px;
+  letter-spacing: -0.01em;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns: repeat(4, minmax(0,1fr));
+  gap: 14px;
+}
+
+.card{
+  padding: 14px;
+  border-radius: var(--radius);
+  background: var(--card);
+  border: 1px solid var(--stroke);
+  box-shadow: 0 10px 24px rgba(20,12,6,0.06);
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+.card:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px rgba(20,12,6,0.10);
+}
+.cardTitle{ font-weight: 900; margin: 10px 0 0; }
+.badge{
+  width: 100%;
+  border-radius: 14px;
+  height: 110px;
+  border: 1px solid var(--stroke);
+  background: radial-gradient(800px 220px at 20% 20%, rgba(255,255,255,.88), rgba(255,255,255,.55)),
+              linear-gradient(135deg, rgba(120,160,255,.18), rgba(255,205,140,.14));
+}
+
+@media (max-width: 900px){
+  .heroInner{ grid-template-columns: 1fr; }
+  .h1{ font-size: 38px; }
+  .grid{ grid-template-columns: repeat(2, minmax(0,1fr)); }
 }
