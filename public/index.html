@@ -2,165 +2,240 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>My Magic Story Book</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <style>
-    body {
-      margin: 0;
-      font-family: "Georgia", serif;
-      background: #f6f7fb;
-      color: #24324a;
+    :root{
+      --gold:#d4af37;
+      --ink:#1f2b3a;
+      --radius:26px;
     }
 
-    /* HERO */
-    .hero {
-  background-image: url('/storybook-bg.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  padding: 80px 20px;
-}
-    .hero-card {
-      max-width: 720px;
-      margin: auto;
-      background: rgba(255,255,255,0.88);
-      border-radius: 24px;
-      padding: 40px 32px;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.12);
+    *{
+      box-sizing:border-box;
+      margin:0;
+      padding:0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, serif;
     }
 
-    .hero h1 {
-      font-size: 42px;
-      margin: 0 0 12px;
-      line-height: 1.2;
+    body{
+      background: url('/storybook-bg.jpg') center top / cover no-repeat fixed;
+      color:var(--ink);
     }
 
-    .hero h1 span {
-      color: #d4a94f;
+    /* ================= HEADER ================= */
+    header{
+      position: sticky;
+      top:0;
+      z-index:999;
+      background: rgba(255,255,255,.75);
+      backdrop-filter: blur(10px);
+      border-bottom:1px solid rgba(0,0,0,.08);
     }
 
-    .hero p {
-      font-size: 18px;
-      line-height: 1.6;
-      margin-bottom: 28px;
+    .nav{
+      max-width:1200px;
+      margin:auto;
+      padding:14px 18px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      flex-wrap:wrap;
     }
 
-    .buttons {
-      display: flex;
-      gap: 16px;
-      flex-wrap: wrap;
+    .brand{
+      font-weight:800;
+      font-size:20px;
+      display:flex;
+      gap:6px;
+      align-items:center;
     }
 
-    .btn-primary {
-      background: linear-gradient(135deg, #f0c96b, #d4a94f);
-      color: #1f2a44;
-      padding: 14px 28px;
-      border-radius: 999px;
-      font-weight: bold;
-      border: none;
-      cursor: pointer;
-      font-size: 16px;
+    .brand span{
+      color:var(--gold);
+      font-size:22px;
     }
 
-    .btn-secondary {
-      background: #fff;
-      border: 2px solid #e5e7eb;
-      padding: 14px 28px;
-      border-radius: 999px;
-      font-weight: bold;
-      cursor: pointer;
-      font-size: 16px;
+    .menu{
+      display:flex;
+      gap:14px;
+      font-weight:600;
+      flex-wrap:wrap;
     }
 
-    /* SECTION */
-    .section {
-      padding: 80px 20px;
-      text-align: center;
+    .menu a{
+      text-decoration:none;
+      color:var(--ink);
+      opacity:.85;
+      padding:6px 10px;
+      border-radius:999px;
     }
 
-    .section h2 {
-      font-size: 40px;
-      margin-bottom: 12px;
+    .menu a.active{
+      border-bottom:2px solid var(--gold);
+      opacity:1;
     }
 
-    .section p {
-      font-size: 18px;
-      color: #5b667a;
-      margin-bottom: 50px;
+    /* ================= HERO ================= */
+    .hero{
+      padding:22px 14px;
     }
 
-    /* GRID */
-    .grid {
-      max-width: 1100px;
-      margin: auto;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 24px;
+    .heroCard{
+      max-width:1100px;
+      margin:auto;
+      background: rgba(255,255,255,.55);
+      border-radius:var(--radius);
+      overflow:hidden;
+      border:1px solid rgba(0,0,0,.08);
+      box-shadow:0 18px 50px rgba(0,0,0,.15);
     }
 
-    .card {
-      background: #fff;
-      border-radius: 22px;
-      padding: 16px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    .heroGrid{
+      display:grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      align-items:center;
     }
 
-    .card img {
-      width: 100%;
-      border-radius: 16px;
-      aspect-ratio: 1 / 1;
-      object-fit: cover;
+    .heroLeft{
+      padding:26px;
     }
 
-    .card h3 {
-      margin: 14px 0 4px;
+    .heroLeft h1{
+      font-size:38px;
+      line-height:1.1;
+      margin-bottom:12px;
     }
+
+    .heroLeft h1 span{
+      color:var(--gold);
+    }
+
+    .heroLeft p{
+      font-size:18px;
+      opacity:.85;
+      margin-bottom:18px;
+    }
+
+    .buttons{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-bottom:18px;
+    }
+
+    .btnPrimary{
+      background: linear-gradient(#e6c15a,#caa23a);
+      border:none;
+      padding:14px 22px;
+      border-radius:999px;
+      font-weight:700;
+      cursor:pointer;
+    }
+
+    .btnGhost{
+      background:white;
+      border:1px solid rgba(0,0,0,.15);
+      padding:14px 22px;
+      border-radius:999px;
+      font-weight:600;
+      cursor:pointer;
+    }
+
+    .steps{
+      display:grid;
+      grid-template-columns: repeat(2,1fr);
+      gap:12px;
+    }
+
+    .step{
+      background:white;
+      padding:14px;
+      border-radius:16px;
+      border:1px solid rgba(0,0,0,.08);
+      font-weight:600;
+      display:flex;
+      gap:8px;
+      align-items:center;
+    }
+
+    .heroArt{
+      padding:16px;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+    }
+
+    .heroArt img{
+      width:100%;
+      max-width:520px;
+      height:auto;
+      border-radius:22px;
+      box-shadow:0 14px 34px rgba(0,0,0,.2);
+    }
+
+    /* ================= RESPONSIVO ================= */
+    @media (max-width:820px){
+      .heroGrid{
+        grid-template-columns:1fr;
+      }
+
+      .heroLeft h1{
+        font-size:30px;
+      }
+    }
+
   </style>
 </head>
 
 <body>
 
+  <!-- HEADER -->
+  <header>
+    <div class="nav">
+      <div class="brand">
+        <span>★</span> My Magic Story Book
+      </div>
+      <nav class="menu">
+        <a class="active" href="#">Home</a>
+        <a href="#">Our Books</a>
+        <a href="#">Reviews</a>
+        <a href="#">FAQ</a>
+        <a href="#">My Account</a>
+      </nav>
+    </div>
+  </header>
+
   <!-- HERO -->
   <section class="hero">
-    <div class="hero-card">
-      <h1>Create a <span>Personalized</span> Storybook</h1>
-      <p>
-        Where your child becomes the hero of a magical adventure.
-        Upload a photo, pick a theme, preview the book, and download your PDF.
-      </p>
+    <div class="heroCard">
+      <div class="heroGrid">
 
-      <div class="buttons">
-        <button class="btn-primary">Create Your Book</button>
-        <button class="btn-secondary">Browse Themes</button>
-      </div>
-    </div>
-  </section>
+        <div class="heroLeft">
+          <h1>Create a <span>Personalized</span> Storybook</h1>
+          <p>
+            Where your child becomes the hero of a magical adventure.
+            Upload a photo, pick a theme, preview the book, and download your PDF.
+          </p>
 
-  <!-- THEMES -->
-  <section class="section">
-    <h2>Enchanting Stories For Every Child</h2>
-    <p>Select the perfect story theme and make your child the hero!</p>
+          <div class="buttons">
+            <button class="btnPrimary">Create Your Book</button>
+            <button class="btnGhost">Browse Themes</button>
+          </div>
 
-    <div class="grid">
-      <div class="card">
-        <img src="/themes/magical-adventure.jpg" />
-        <h3>Magical Adventure</h3>
-      </div>
+          <div class="steps">
+            <div class="step">📖 Choose a Story</div>
+            <div class="step">📷 Upload & Personalize</div>
+            <div class="step">👀 Preview</div>
+            <div class="step">⬇️ Download PDF</div>
+          </div>
+        </div>
 
-      <div class="card">
-        <img src="/themes/dreamland-journey.jpg" />
-        <h3>Dreamland Journey</h3>
-      </div>
+        <div class="heroArt">
+          <img src="/hero.jpg" alt="Magical Storybook"/>
+        </div>
 
-      <div class="card">
-        <img src="/themes/under-the-sea.jpg" />
-        <h3>Under the Sea</h3>
-      </div>
-
-      <div class="card">
-        <img src="/themes/space-explorer.jpg" />
-        <h3>Space Explorer</h3>
       </div>
     </div>
   </section>
