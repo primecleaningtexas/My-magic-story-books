@@ -1,101 +1,195 @@
-export default function Home() {
-  const THEMES = [
-    { id: "magical", title: "Magical Adventure", img: "/themes/magical-adventure.jpg" },
-    { id: "dreamland", title: "Dreamland Journey", img: "/themes/dreamland-journey.jpg" },
-    { id: "sea", title: "Under the Sea", img: "/themes/under-the-sea.jpg" },
-    { id: "space", title: "Space Explorer", img: "/themes/space-explorer.jpg" },
-    { id: "animals", title: "Kingdom of Animals", img: "/themes/kingdom-of-animals.jpg" },
-    { id: "numbers", title: "Numbers Quest", img: "/themes/numbers-quest.jpg" },
-    { id: "bedtime", title: "Bedtime Adventure", img: "/themes/bedtime-adventure.jpg" },
-    { id: "safari", title: "Amazing Safari", img: "/themes/amazing-safari.jpg" },
-  ];
+import Head from "next/head";
 
+const THEMES = [
+  {
+    id: "magical-adventure",
+    title: "Magical Adventure",
+    image: "/themes/magical-adventure.jpg",
+  },
+  {
+    id: "dreamland-journey",
+    title: "Dreamland Journey",
+    image: "/themes/dreamland-journey.jpg",
+  },
+  {
+    id: "under-the-sea",
+    title: "Under the Sea",
+    image: "/themes/under-the-sea.jpg",
+  },
+  {
+    id: "space-explorer",
+    title: "Space Explorer",
+    image: "/themes/space-explorer.jpg",
+  },
+  {
+    id: "kingdom-of-animals",
+    title: "Kingdom of Animals",
+    image: "/themes/kingdom-of-animals.jpg",
+  },
+  {
+    id: "numbers-quest",
+    title: "Numbers Quest",
+    image: "/themes/numbers-quest.jpg",
+  },
+  {
+    id: "bedtime-adventure",
+    title: "Bedtime Adventure",
+    image: "/themes/bedtime-adventure.jpg",
+  },
+  {
+    id: "amazing-safari",
+    title: "Amazing Safari",
+    image: "/themes/amazing-safari.jpg",
+  },
+];
+
+export default function Home() {
   return (
-    <div className="page">
-      <header className="topbar">
-        <div className="brand">
-          <span className="brandStar">★</span>
-          <span className="brandText">
-            My Magic<br />Story Book
-          </span>
+    <>
+      <Head>
+        <title>My Magic Story Book</title>
+      </Head>
+
+      {/* HERO */}
+      <section className="hero">
+        <div className="heroText">
+          <h1>
+            Create a <span>Personalized</span> Storybook
+          </h1>
+          <p>
+            Where your child becomes the hero of a magical adventure.
+          </p>
+
+          <button className="cta">Create Your Book</button>
         </div>
 
-        <nav className="nav">
-          <a href="#" className="navLink active">Home</a>
-          <a href="#books" className="navLink">Our Books</a>
-          <a href="#reviews" className="navLink">Reviews</a>
-          <a href="#faq" className="navLink">FAQ</a>
-          <a href="#account" className="navLink">My Account</a>
-        </nav>
-      </header>
+        <div className="heroImage">
+          <img src="/hero.jpg" alt="Hero Book" />
+        </div>
+      </section>
 
-      <main>
-        {/* HERO */}
-        <section className="hero">
-          <div className="heroInner">
-            <div className="heroLeft">
-              <div className="kicker">PERSONALIZED STORIES</div>
+      {/* THEMES */}
+      <section className="themes">
+        <h2>Enchanting Stories For Every Child</h2>
+        <p>Select the perfect story theme and make your child the hero!</p>
 
-              <h1 className="heroTitle">
-                Create a <span className="gold">Personalized</span><br />
-                Storybook
-              </h1>
-
-              <p className="heroSubtitle">
-                Where your child becomes the hero of a magical adventure.
-                Upload a photo, pick a theme, preview the book, and download your PDF.
-              </p>
-
-              <div className="ctaRow">
-                <a className="btnGold" href="/create">Create Your Book</a>
-                <a className="btnGhost" href="#themes">Browse Themes</a>
+        <div className="grid">
+          {THEMES.map((theme) => (
+            <div key={theme.id} className="card">
+              <div className="coverWrap">
+                <img
+                  src={theme.image}
+                  alt={theme.title}
+                  className="cover"
+                />
               </div>
-
-              <div className="steps">
-                <div className="step"><span className="stepIco">📖</span> Choose a Story</div>
-                <div className="arrow">→</div>
-                <div className="step"><span className="stepIco">📷</span> Upload Photo &amp; Personalize</div>
-                <div className="arrow">→</div>
-                <div className="step"><span className="stepIco">👀</span> Preview Your Book</div>
-                <div className="arrow">→</div>
-                <div className="step"><span className="stepIco">⬇️</span> Download PDF</div>
-              </div>
+              <div className="title">{theme.title}</div>
             </div>
+          ))}
+        </div>
 
-            <div className="heroRight" aria-label="Hero art">
-              {/* Se você tiver uma imagem “book-open.png”, troque abaixo por /book-open.png */}
-              <div className="bookFrame">
-                <img className="heroImg" src="/hero.jpg" alt="Hero" />
-              </div>
-            </div>
-          </div>
-        </section>
+        <button className="cta bottom">Create Yours Now →</button>
+      </section>
 
-        {/* THEMES */}
-        <section id="themes" className="themes">
-          <div className="themesHeader">
-            <h2 className="themesTitle">Enchanting Stories For Every Child</h2>
-            <p className="themesSub">
-              Select the perfect story theme and make your child the hero!
-            </p>
-          </div>
+      {/* STYLES */}
+      <style jsx>{`
+        body {
+          margin: 0;
+        }
 
-          <div className="grid" id="books">
-            {THEMES.map((t) => (
-              <div key={t.id} className="card">
-                <div className="cover">
-                  <img src={t.img} alt={t.title} loading="lazy" />
-                </div>
-                <div className="cardLabel">{t.title}</div>
-              </div>
-            ))}
-          </div>
+        .hero {
+          display: flex;
+          flex-wrap: wrap;
+          align-items: center;
+          justify-content: center;
+          padding: 40px 20px;
+          background: linear-gradient(#eaf6ff, #ffffff);
+          gap: 30px;
+        }
 
-          <div className="bottomCta">
-            <a className="btnGold big" href="/create">Create Yours Now →</a>
-          </div>
-        </section>
-      </main>
-    </div>
+        .heroText {
+          max-width: 420px;
+        }
+
+        h1 {
+          font-size: 42px;
+          margin-bottom: 12px;
+        }
+
+        h1 span {
+          color: #caa44d;
+        }
+
+        p {
+          color: #555;
+          margin-bottom: 20px;
+        }
+
+        .cta {
+          background: linear-gradient(#f7d47c, #caa44d);
+          border: none;
+          border-radius: 30px;
+          padding: 14px 28px;
+          font-size: 16px;
+          font-weight: bold;
+          cursor: pointer;
+        }
+
+        .heroImage img {
+          max-width: 340px;
+          width: 100%;
+        }
+
+        .themes {
+          padding: 60px 20px;
+          text-align: center;
+        }
+
+        .grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+          gap: 20px;
+          margin-top: 40px;
+        }
+
+        .card {
+          background: #ffffff;
+          border-radius: 18px;
+          padding: 12px;
+          box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+        }
+
+        /* 🔥 PARTE QUE CONSERTA A IMAGEM 🔥 */
+        .coverWrap {
+          width: 100%;
+          aspect-ratio: 1 / 1; /* QUADRADO */
+          overflow: hidden;
+          border-radius: 14px;
+          background: #f5f5f5;
+        }
+
+        .cover {
+          width: 100%;
+          height: 100%;
+          object-fit: cover; /* NÃO ESTICA */
+          display: block;
+        }
+
+        .title {
+          margin-top: 10px;
+          font-weight: bold;
+        }
+
+        .bottom {
+          margin-top: 40px;
+        }
+
+        @media (max-width: 600px) {
+          h1 {
+            font-size: 32px;
+          }
+        }
+      `}</style>
+    </>
   );
 }
