@@ -1,71 +1,469 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>My Magic Story Book</title>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>My Magic Story Book</title>
+    <meta name="description" content="Create a personalized storybook where your child becomes the hero of a magical adventure." />
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="/styles/site.css">
-</head>
+    <style>
+      :root{
+        --ink:#1f2b3a;
+        --ink2:rgba(31,43,58,.78);
+        --gold:#b88f2a;
+        --gold2:#d8b75b;
+        --card:rgba(255,255,255,.58);
+        --card2:rgba(255,255,255,.72);
+        --border:rgba(31,43,58,.14);
+        --shadow:0 18px 55px rgba(10,20,30,.18);
+        --radius:28px;
+        --radius2:22px;
+        --max:1120px;
+      }
 
-<body>
+      *{ box-sizing:border-box; }
+      html,body{ height:100%; }
+      body{
+        margin:0;
+        font-family: ui-serif, Georgia, "Times New Roman", Times, serif;
+        color:var(--ink);
+        background:
+          radial-gradient(1200px 700px at 40% 10%, rgba(255,255,255,.65), rgba(255,255,255,.05) 70%),
+          linear-gradient(rgba(255,255,255,.55), rgba(255,255,255,.55)),
+          url("/storybook-bg.jpg") center/cover fixed no-repeat;
+      }
 
-  <!-- NAVBAR -->
-  <header class="topbar">
-    <div class="brand">
-      ⭐ <span>My Magic Story Book</span>
-    </div>
+      /* subtle sparkles overlay vibe */
+      body:before{
+        content:"";
+        position:fixed; inset:0;
+        pointer-events:none;
+        background:
+          radial-gradient(circle at 20% 20%, rgba(255,255,255,.25), transparent 38%),
+          radial-gradient(circle at 70% 30%, rgba(255,255,255,.18), transparent 42%),
+          radial-gradient(circle at 40% 80%, rgba(255,255,255,.18), transparent 45%);
+        mix-blend-mode:screen;
+        opacity:.55;
+      }
 
-    <nav>
-      <a class="active" href="#">Home</a>
-      <a href="#">Our Books</a>
-      <a href="#">Reviews</a>
-      <a href="#">FAQ</a>
-      <a href="#">My Account</a>
-    </nav>
-  </header>
+      a{ color:inherit; text-decoration:none; }
+      .wrap{ position:relative; }
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="heroOverlay">
+      /* TOP NAV */
+      .topbar{
+        position:sticky;
+        top:0;
+        z-index:50;
+        backdrop-filter: blur(10px);
+        background: rgba(235,242,252,.55);
+        border-bottom: 1px solid rgba(0,0,0,.06);
+      }
+      .topbarInner{
+        max-width:var(--max);
+        margin:0 auto;
+        padding:14px 14px;
+        display:flex;
+        align-items:center;
+        justify-content:space-between;
+        gap:18px;
+      }
+      .brand{
+        display:flex;
+        align-items:flex-start;
+        gap:10px;
+        min-width:190px;
+      }
+      .brandStar{
+        color:var(--gold);
+        font-size:22px;
+        line-height:1;
+        margin-top:4px;
+      }
+      .brandText{ line-height:1.05; }
+      .brandName{
+        font-weight:800;
+        font-size:28px;
+        letter-spacing:.2px;
+      }
+      .nav{
+        display:flex;
+        gap:10px;
+        flex-wrap:wrap;
+        justify-content:flex-end;
+      }
+      .navLink{
+        opacity:.86;
+        font-weight:700;
+        font-size:16px;
+        padding:8px 12px;
+        border-radius:999px;
+      }
+      .navLink:hover{ opacity:1; background:rgba(255,255,255,.35); }
+      .navLink.active{
+        opacity:1;
+        position:relative;
+      }
+      .navLink.active:after{
+        content:"";
+        position:absolute;
+        left:18px; right:18px;
+        bottom:4px;
+        height:3px;
+        border-radius:999px;
+        background: rgba(184,143,42,.55);
+      }
 
-      <div class="heroGrid">
+      /* HERO */
+      .hero{
+        padding:28px 14px 10px;
+      }
+      .heroCard{
+        max-width:var(--max);
+        margin:0 auto;
+        border-radius:var(--radius);
+        box-shadow:var(--shadow);
+        border:1px solid var(--border);
+        background: var(--card);
+        backdrop-filter: blur(10px);
+        overflow:hidden;
+      }
+      .heroGrid{
+        display:grid;
+        grid-template-columns: 1.1fr 0.9fr;
+        align-items:center;
+        gap:0;
+      }
+      .heroLeft{
+        padding:28px 28px 22px;
+      }
+      .kicker{
+        font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+        font-weight:800;
+        letter-spacing:.18em;
+        font-size:12px;
+        opacity:.7;
+      }
+      .heroH1{
+        margin:12px 0 10px;
+        font-size:56px;
+        line-height:1.02;
+        letter-spacing:-.5px;
+      }
+      .heroH1 .gold{ color:var(--gold); }
+      .heroP{
+        margin:0 0 18px;
+        max-width:44ch;
+        color:var(--ink2);
+        font-size:20px;
+        line-height:1.35;
+      }
 
-        <!-- TEXTO -->
-        <div class="heroLeft">
-          <h1>
-            Create a <span>Personalized</span><br/>
-            Storybook
-          </h1>
+      .ctaRow{
+        display:flex;
+        gap:12px;
+        flex-wrap:wrap;
+        margin:16px 0 16px;
+      }
+      .btn{
+        border:1px solid rgba(0,0,0,.12);
+        border-radius:999px;
+        padding:12px 18px;
+        font-weight:800;
+        font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+        cursor:pointer;
+        display:inline-flex;
+        align-items:center;
+        justify-content:center;
+        gap:10px;
+        background:rgba(255,255,255,.55);
+      }
+      .btn.primary{
+        background: linear-gradient(180deg, var(--gold2), var(--gold));
+        border:1px solid rgba(90,60,10,.22);
+        color:#1f2b3a;
+        box-shadow: 0 10px 28px rgba(184,143,42,.28);
+      }
 
-          <p>
-            Where your child becomes the hero of a magical adventure.
-            Upload a photo, pick a theme, preview the book, and download your PDF.
-          </p>
+      .steps{
+        display:grid;
+        grid-template-columns: repeat(2, minmax(0,1fr));
+        gap:12px;
+        margin-top:10px;
+      }
+      .step{
+        background: rgba(255,255,255,.55);
+        border:1px solid rgba(0,0,0,.10);
+        border-radius:18px;
+        padding:14px 14px;
+        display:flex;
+        gap:10px;
+        align-items:center;
+        font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+        font-weight:800;
+        color: rgba(31,43,58,.92);
+      }
+      .step .ico{ font-size:18px; }
 
-          <div class="heroButtons">
-            <button class="primary">Create Your Book</button>
-            <button class="secondary">Browse Themes</button>
-          </div>
+      .heroRight{
+        padding:18px 18px 18px 0;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+      }
+      .heroArt{
+        width:100%;
+        max-width:520px;
+        border-radius:26px;
+        overflow:hidden;
+        box-shadow: 0 18px 40px rgba(10,20,30,.18);
+        background: transparent; /* important */
+      }
+      .heroArt img{
+        width:100%;
+        height:auto;
+        display:block;
+        background:transparent; /* important */
+      }
 
-          <div class="heroSteps">
-            <div>📘 Choose a Story</div>
-            <div>📸 Upload & Personalize</div>
-            <div>👀 Preview</div>
-            <div>⬇️ Download PDF</div>
-          </div>
+      /* SECTION */
+      .section{
+        padding:26px 14px 36px;
+      }
+      .sectionCard{
+        max-width:var(--max);
+        margin:0 auto;
+        border-radius:var(--radius);
+        box-shadow:var(--shadow);
+        border:1px solid var(--border);
+        background: var(--card2);
+        backdrop-filter: blur(10px);
+        padding:26px 20px 22px;
+      }
+      .sectionTitle{
+        text-align:center;
+        font-size:52px;
+        margin:0 0 8px;
+        letter-spacing:-.4px;
+      }
+      .sectionSub{
+        text-align:center;
+        margin:0 auto 18px;
+        max-width:60ch;
+        color:var(--ink2);
+        font-size:20px;
+        line-height:1.35;
+      }
+
+      /* THEMES GRID */
+      .grid{
+        display:grid;
+        grid-template-columns: repeat(4, minmax(0,1fr));
+        gap:16px;
+        padding:12px 6px 10px;
+      }
+      .theme{
+        background: rgba(255,255,255,.60);
+        border:1px solid rgba(0,0,0,.10);
+        border-radius:22px;
+        overflow:hidden;
+        box-shadow: 0 10px 24px rgba(0,0,0,.08);
+      }
+      .themeImg{
+        width:100%;
+        aspect-ratio: 1 / 1;  /* keeps them square like your reference */
+        object-fit: cover;
+        display:block;
+      }
+      .themeName{
+        padding:12px 12px;
+        text-align:center;
+        font-weight:900;
+        font-size:18px;
+      }
+
+      .bottomCta{
+        display:flex;
+        justify-content:center;
+        padding:8px 0 6px;
+      }
+      .bigCta{
+        border-radius:999px;
+        padding:14px 28px;
+        font-size:18px;
+        font-weight:900;
+        font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+        background: linear-gradient(180deg, var(--gold2), var(--gold));
+        border:1px solid rgba(90,60,10,.22);
+        box-shadow: 0 12px 32px rgba(184,143,42,.25);
+      }
+
+      /* RESPONSIVE */
+      @media (max-width: 980px){
+        .heroH1{ font-size:46px; }
+        .grid{ grid-template-columns: repeat(2, minmax(0,1fr)); }
+      }
+      @media (max-width: 820px){
+        .heroGrid{ grid-template-columns: 1fr; }
+        .heroRight{ padding:0 18px 20px; }
+        .heroLeft{ padding:22px 18px 14px; }
+        .steps{ grid-template-columns: 1fr 1fr; }
+      }
+      @media (max-width: 520px){
+        .brandName{ font-size:24px; }
+        .heroH1{ font-size:40px; }
+        .sectionTitle{ font-size:40px; }
+        .steps{ grid-template-columns: 1fr 1fr; }
+        .navLink{ font-size:15px; }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="wrap">
+      <header class="topbar">
+        <div class="topbarInner">
+          <a class="brand" href="#">
+            <div class="brandStar">★</div>
+            <div class="brandText">
+              <div class="brandName">My Magic<br/>Story Book</div>
+            </div>
+          </a>
+
+          <nav class="nav" aria-label="Main navigation">
+            <a class="navLink active" href="#">Home</a>
+            <a class="navLink" href="#books">Our Books</a>
+            <a class="navLink" href="#reviews">Reviews</a>
+            <a class="navLink" href="#faq">FAQ</a>
+            <a class="navLink" href="#account">My Account</a>
+          </nav>
         </div>
+      </header>
 
-        <!-- IMAGEM -->
-        <div class="heroRight">
-          <img src="/hero.jpg" alt="Storybook Preview">
-        </div>
+      <main>
+        <section class="hero">
+          <div class="heroCard">
+            <div class="heroGrid">
+              <div class="heroLeft">
+                <div class="kicker">PERSONALIZED STORIES</div>
 
-      </div>
+                <h1 class="heroH1">
+                  Create a <span class="gold">Personalized</span><br/>
+                  Storybook
+                </h1>
 
+                <p class="heroP">
+                  Where your child becomes the hero of a magical adventure.
+                  Upload a photo, pick a theme, preview the book, and download your PDF.
+                </p>
+
+                <div class="ctaRow">
+                  <a class="btn primary" href="#books">Create Your Book</a>
+                  <a class="btn" href="#books">Browse Themes</a>
+                </div>
+
+                <div class="steps" aria-label="Steps">
+                  <div class="step"><span class="ico">📖</span><span>Choose a Story</span></div>
+                  <div class="step"><span class="ico">📷</span><span>Upload &amp; Personalize</span></div>
+                  <div class="step"><span class="ico">👀</span><span>Preview</span></div>
+                  <div class="step"><span class="ico">⬇️</span><span>Download PDF</span></div>
+                </div>
+              </div>
+
+              <div class="heroRight">
+                <div class="heroArt">
+                  <!-- If you want real transparency like the reference, use hero.png (transparent background) -->
+                  <img src="/hero.jpg" alt="Open storybook hero" />
+                  <!-- change to: <img src="/hero.png" alt="Open storybook hero" /> -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" id="books">
+          <div class="sectionCard">
+            <h2 class="sectionTitle">Enchanting Stories<br/>For Every Child</h2>
+            <p class="sectionSub">
+              Select the perfect story theme and make your child the hero!
+            </p>
+
+            <div class="grid">
+              <div class="theme">
+                <img class="themeImg" src="/themes/magical-adventure.jpg" alt="Magical Adventure" />
+                <div class="themeName">Magical Adventure</div>
+              </div>
+
+              <div class="theme">
+                <img class="themeImg" src="/themes/dreamland-journey.jpg" alt="Dreamland Journey" />
+                <div class="themeName">Dreamland Journey</div>
+              </div>
+
+              <div class="theme">
+                <img class="themeImg" src="/themes/under-the-sea.jpg" alt="Under the Sea" />
+                <div class="themeName">Under the Sea</div>
+              </div>
+
+              <div class="theme">
+                <img class="themeImg" src="/themes/space-explorer.jpg" alt="Space Explorer" />
+                <div class="themeName">Space Explorer</div>
+              </div>
+
+              <div class="theme">
+                <img class="themeImg" src="/themes/kingdom-of-animals.jpg" alt="Kingdom of Animals" />
+                <div class="themeName">Kingdom of Animals</div>
+              </div>
+
+              <div class="theme">
+                <img class="themeImg" src="/themes/numbers-quest.jpg" alt="Numbers Quest" />
+                <div class="themeName">Numbers Quest</div>
+              </div>
+
+              <div class="theme">
+                <img class="themeImg" src="/themes/bedtime-adventure.jpg" alt="Bedtime Adventure" />
+                <div class="themeName">Bedtime Adventure</div>
+              </div>
+
+              <div class="theme">
+                <img class="themeImg" src="/themes/amazing-safari.jpg" alt="Amazing Safari" />
+                <div class="themeName">Amazing Safari</div>
+              </div>
+            </div>
+
+            <div class="bottomCta">
+              <a class="bigCta" href="#books">Create Yours Now →</a>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" id="reviews" style="padding-top:0;">
+          <div class="sectionCard">
+            <h2 class="sectionTitle" style="font-size:36px;margin-bottom:6px;">Reviews</h2>
+            <p class="sectionSub" style="margin-bottom:0;">
+              (Placeholder) Add reviews here when you’re ready.
+            </p>
+          </div>
+        </section>
+
+        <section class="section" id="faq" style="padding-top:0;">
+          <div class="sectionCard">
+            <h2 class="sectionTitle" style="font-size:36px;margin-bottom:6px;">FAQ</h2>
+            <p class="sectionSub" style="margin-bottom:0;">
+              (Placeholder) Add your FAQ here.
+            </p>
+          </div>
+        </section>
+
+        <section class="section" id="account" style="padding-top:0;">
+          <div class="sectionCard">
+            <h2 class="sectionTitle" style="font-size:36px;margin-bottom:6px;">My Account</h2>
+            <p class="sectionSub" style="margin-bottom:0;">
+              (Placeholder) Account / login page later.
+            </p>
+          </div>
+        </section>
+
+        <div style="height:36px;"></div>
+      </main>
     </div>
-  </section>
-
-</body>
+  </body>
 </html>
