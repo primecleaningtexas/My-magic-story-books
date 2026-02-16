@@ -1,46 +1,14 @@
 import Head from "next/head";
 
 const THEMES = [
-  {
-    id: "magical-adventure",
-    title: "Magical Adventure",
-    image: "/themes/magical-adventure.jpg",
-  },
-  {
-    id: "dreamland-journey",
-    title: "Dreamland Journey",
-    image: "/themes/dreamland-journey.jpg",
-  },
-  {
-    id: "under-the-sea",
-    title: "Under the Sea",
-    image: "/themes/under-the-sea.jpg",
-  },
-  {
-    id: "space-explorer",
-    title: "Space Explorer",
-    image: "/themes/space-explorer.jpg",
-  },
-  {
-    id: "kingdom-of-animals",
-    title: "Kingdom of Animals",
-    image: "/themes/kingdom-of-animals.jpg",
-  },
-  {
-    id: "numbers-quest",
-    title: "Numbers Quest",
-    image: "/themes/numbers-quest.jpg",
-  },
-  {
-    id: "bedtime-adventure",
-    title: "Bedtime Adventure",
-    image: "/themes/bedtime-adventure.jpg",
-  },
-  {
-    id: "amazing-safari",
-    title: "Amazing Safari",
-    image: "/themes/amazing-safari.jpg",
-  },
+  { id: "magical-adventure", title: "Magical Adventure", img: "/themes/magical-adventure.jpg" },
+  { id: "dreamland-journey", title: "Dreamland Journey", img: "/themes/dreamland-journey.jpg" },
+  { id: "under-the-sea", title: "Under the Sea", img: "/themes/under-the-sea.jpg" },
+  { id: "space-explorer", title: "Space Explorer", img: "/themes/space-explorer.jpg" },
+  { id: "kingdom-of-animals", title: "Kingdom of Animals", img: "/themes/kingdom-of-animals.jpg" },
+  { id: "numbers-quest", title: "Numbers Quest", img: "/themes/numbers-quest.jpg" },
+  { id: "bedtime-adventure", title: "Bedtime Adventure", img: "/themes/bedtime-adventure.jpg" },
+  { id: "amazing-safari", title: "Amazing Safari", img: "/themes/amazing-safari.jpg" },
 ];
 
 export default function Home() {
@@ -48,148 +16,124 @@ export default function Home() {
     <>
       <Head>
         <title>My Magic Story Book</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
 
-      {/* HERO */}
-      <section className="hero">
-        <div className="heroText">
-          <h1>
-            Create a <span>Personalized</span> Storybook
-          </h1>
-          <p>
-            Where your child becomes the hero of a magical adventure.
-          </p>
-
-          <button className="cta">Create Your Book</button>
-        </div>
-
-        <div className="heroImage">
-          <img src="/hero.jpg" alt="Hero Book" />
-        </div>
-      </section>
-
-      {/* THEMES */}
-      <section className="themes">
-        <h2>Enchanting Stories For Every Child</h2>
-        <p>Select the perfect story theme and make your child the hero!</p>
-
-        <div className="grid">
-          {THEMES.map((theme) => (
-            <div key={theme.id} className="card">
-              <div className="coverWrap">
-                <img
-                  src={theme.image}
-                  alt={theme.title}
-                  className="cover"
-                />
-              </div>
-              <div className="title">{theme.title}</div>
+      <header className="topbar">
+        <div className="topbarInner">
+          <div className="brand">
+            <span className="brandStar">★</span>
+            <div className="brandText">
+              <div className="brandName">My Magic</div>
+              <div className="brandName">Story Book</div>
             </div>
-          ))}
+          </div>
+
+          <nav className="nav">
+            <a href="#home" className="navLink active">Home</a>
+            <a href="#books" className="navLink">Our Books</a>
+            <a href="#reviews" className="navLink">Reviews</a>
+            <a href="#faq" className="navLink">FAQ</a>
+            <a href="#account" className="navLink">My Account</a>
+          </nav>
         </div>
+      </header>
 
-        <button className="cta bottom">Create Yours Now →</button>
-      </section>
+      <main id="home">
+        {/* HERO */}
+        <section className="hero">
+          <div className="heroCard">
+            <div className="heroGrid">
+              <div className="heroLeft">
+                <div className="kicker">PERSONALIZED STORIES</div>
+                <h1 className="heroTitle">
+                  Create a <span className="gold">Personalized</span> Storybook
+                </h1>
+                <p className="heroSubtitle">
+                  Where your child becomes the hero of a magical adventure. Upload a photo, pick a theme,
+                  preview the book, and download your PDF.
+                </p>
 
-      {/* STYLES */}
-      <style jsx>{`
-        body {
-          margin: 0;
-        }
+                <div className="heroButtons">
+                  <a className="btnPrimary" href="#books">Create Your Book</a>
+                  <a className="btnGhost" href="#books">Browse Themes</a>
+                </div>
 
-        .hero {
-          display: flex;
-          flex-wrap: wrap;
-          align-items: center;
-          justify-content: center;
-          padding: 40px 20px;
-          background: linear-gradient(#eaf6ff, #ffffff);
-          gap: 30px;
-        }
+                {/* “Choose a story / Upload / Preview / Download” = passos (podem ser botões sim) */}
+                <div className="steps">
+                  <div className="step">
+                    <div className="stepIcon">📖</div>
+                    <div className="stepLabel">Choose a Story</div>
+                  </div>
+                  <div className="step">
+                    <div className="stepIcon">📷</div>
+                    <div className="stepLabel">Upload Photo<br />&amp; Personalize</div>
+                  </div>
+                  <div className="step">
+                    <div className="stepIcon">👀</div>
+                    <div className="stepLabel">Preview Your Book</div>
+                  </div>
+                  <div className="step">
+                    <div className="stepIcon">⬇️</div>
+                    <div className="stepLabel">Download PDF</div>
+                  </div>
+                </div>
+              </div>
 
-        .heroText {
-          max-width: 420px;
-        }
+              <div className="heroRight">
+                {/* Fundo / imagem grande */}
+                <div className="heroArt">
+                  <img className="heroBg" src="/hero.jpg" alt="Hero background" />
+                  {/* Livro aberto por cima (opcional) */}
+                  <img className="bookOpen" src="/book-open.png" alt="Open book" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
 
-        h1 {
-          font-size: 42px;
-          margin-bottom: 12px;
-        }
+        {/* THEMES */}
+        <section id="books" className="section">
+          <div className="sectionTitleWrap">
+            <h2 className="sectionTitle">Enchanting Stories For Every Child</h2>
+            <p className="sectionSubtitle">Select the perfect story theme and make your child the hero!</p>
+          </div>
 
-        h1 span {
-          color: #caa44d;
-        }
+          <div className="themeGrid">
+            {THEMES.map((t) => (
+              <div className="themeCard" key={t.id}>
+                <div className="coverWrap">
+                  {/* ISSO AQUI resolve: capa quadrada + não estica + não fica gigante */}
+                  <img className="coverImg" src={t.img} alt={t.title} />
+                </div>
+                <div className="themeName">{t.title}</div>
+              </div>
+            ))}
+          </div>
 
-        p {
-          color: #555;
-          margin-bottom: 20px;
-        }
+          <div className="centerCta">
+            <a className="btnPrimary big" href="#books">Create Yours Now →</a>
+          </div>
+        </section>
 
-        .cta {
-          background: linear-gradient(#f7d47c, #caa44d);
-          border: none;
-          border-radius: 30px;
-          padding: 14px 28px;
-          font-size: 16px;
-          font-weight: bold;
-          cursor: pointer;
-        }
+        {/* placeholders */}
+        <section id="reviews" className="section thin">
+          <h3 className="miniTitle">Reviews</h3>
+          <p className="miniText">Coming soon…</p>
+        </section>
 
-        .heroImage img {
-          max-width: 340px;
-          width: 100%;
-        }
+        <section id="faq" className="section thin">
+          <h3 className="miniTitle">FAQ</h3>
+          <p className="miniText">Coming soon…</p>
+        </section>
 
-        .themes {
-          padding: 60px 20px;
-          text-align: center;
-        }
+        <section id="account" className="section thin">
+          <h3 className="miniTitle">My Account</h3>
+          <p className="miniText">Coming soon…</p>
+        </section>
 
-        .grid {
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-          gap: 20px;
-          margin-top: 40px;
-        }
-
-        .card {
-          background: #ffffff;
-          border-radius: 18px;
-          padding: 12px;
-          box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-        }
-
-        /* 🔥 PARTE QUE CONSERTA A IMAGEM 🔥 */
-        .coverWrap {
-          width: 100%;
-          aspect-ratio: 1 / 1; /* QUADRADO */
-          overflow: hidden;
-          border-radius: 14px;
-          background: #f5f5f5;
-        }
-
-        .cover {
-          width: 100%;
-          height: 100%;
-          object-fit: cover; /* NÃO ESTICA */
-          display: block;
-        }
-
-        .title {
-          margin-top: 10px;
-          font-weight: bold;
-        }
-
-        .bottom {
-          margin-top: 40px;
-        }
-
-        @media (max-width: 600px) {
-          h1 {
-            font-size: 32px;
-          }
-        }
-      `}</style>
+        <footer className="footer">© {new Date().getFullYear()} My Magic Story Book</footer>
+      </main>
     </>
   );
 }
