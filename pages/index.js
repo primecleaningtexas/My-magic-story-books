@@ -1,29 +1,55 @@
 import Link from "next/link";
+import styles from "../styles/Home.module.css";
 
 const THEMES = [
   {
-    id: "magical",
+    id: "magical-adventure",
     title: "Magical Adventure",
     image: "/themes/magical-adventure.jpg",
   },
   {
-    id: "dreamland",
+    id: "dreamland-journey",
     title: "Dreamland Journey",
     image: "/themes/dreamland-journey.jpg",
   },
   {
-    id: "sea",
+    id: "under-the-sea",
     title: "Under the Sea",
     image: "/themes/under-the-sea.jpg",
+  },
+  {
+    id: "space-explorer",
+    title: "Space Explorer",
+    image: "/themes/space-explorer.jpg",
+  },
+  {
+    id: "kingdom-of-animals",
+    title: "Kingdom of Animals",
+    image: "/themes/kingdom-of-animals.jpg",
+  },
+  {
+    id: "numbers-quest",
+    title: "Numbers Quest",
+    image: "/themes/numbers-quest.jpg",
+  },
+  {
+    id: "bedtime-adventure",
+    title: "Bedtime Adventure",
+    image: "/themes/bedtime-adventure.jpg",
+  },
+  {
+    id: "amazing-safari",
+    title: "Amazing Safari",
+    image: "/themes/amazing-safari.jpg",
   },
 ];
 
 export default function Home() {
   return (
-    <>
+    <div className={styles.page}>
       {/* HERO */}
-      <section className="hero">
-        <div className="heroText">
+      <section className={styles.hero}>
+        <div className={styles.heroText}>
           <h1>
             Create a <span>Personalized</span> Storybook
           </h1>
@@ -31,116 +57,30 @@ export default function Home() {
             Where your child becomes the hero of a magical adventure.
           </p>
 
-          <Link href="/create" className="btnPrimary">
+          <Link href="/create" className={styles.cta}>
             Create Your Book
           </Link>
         </div>
 
-        <div className="heroImage">
-          <img src="/hero.jpg" alt="Hero storybook" />
+        <div className={styles.heroImage}>
+          <img src="/hero.jpg" alt="My Magic Story Book" />
         </div>
       </section>
 
       {/* THEMES */}
-      <section className="themes">
+      <section className={styles.themes}>
         <h2>Enchanting Stories For Every Child</h2>
         <p>Select the perfect story theme and make your child the hero!</p>
 
-        <div className="grid">
+        <div className={styles.grid}>
           {THEMES.map((theme) => (
-            <div key={theme.id} className="card">
+            <div key={theme.id} className={styles.card}>
               <img src={theme.image} alt={theme.title} />
               <h3>{theme.title}</h3>
             </div>
           ))}
         </div>
       </section>
-
-      <style jsx>{`
-        .hero {
-          display: flex;
-          gap: 40px;
-          align-items: center;
-          padding: 60px 20px;
-          max-width: 1200px;
-          margin: auto;
-        }
-
-        .heroText h1 {
-          font-size: 42px;
-          line-height: 1.2;
-        }
-
-        .heroText span {
-          color: #c9a24d;
-        }
-
-        .heroText p {
-          font-size: 18px;
-          margin: 20px 0;
-        }
-
-        .btnPrimary {
-          background: #f4c430;
-          padding: 14px 28px;
-          border-radius: 999px;
-          font-weight: bold;
-          color: #000;
-          text-decoration: none;
-          display: inline-block;
-        }
-
-        .heroImage img {
-          max-width: 420px;
-          border-radius: 20px;
-        }
-
-        .themes {
-          text-align: center;
-          padding: 80px 20px;
-        }
-
-        .themes h2 {
-          font-size: 32px;
-          margin-bottom: 10px;
-        }
-
-        .themes p {
-          color: #555;
-          margin-bottom: 40px;
-        }
-
-        .grid {
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-          gap: 24px;
-          max-width: 1100px;
-          margin: auto;
-        }
-
-        .card {
-          background: #fff;
-          border-radius: 20px;
-          padding: 16px;
-          box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-        }
-
-        .card img {
-          width: 100%;
-          border-radius: 16px;
-        }
-
-        .card h3 {
-          margin-top: 12px;
-        }
-
-        @media (max-width: 768px) {
-          .hero {
-            flex-direction: column;
-            text-align: center;
-          }
-        }
-      `}</style>
-    </>
+    </div>
   );
 }
