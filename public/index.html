@@ -1,145 +1,71 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>My Magic Story Book</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/site.css" />
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/styles/site.css">
 </head>
 
 <body>
-  <!-- BACKGROUND -->
-  <div class="pageBg"></div>
 
-  <!-- HEADER -->
+  <!-- NAVBAR -->
   <header class="topbar">
-    <div class="wrap topbarInner">
-      <div class="brand">
-        <span class="brandStar">★</span>
-        <div class="brandText">
-          <div class="brandName">My<br/>Magic<br/>Story<br/>Book</div>
-        </div>
-      </div>
-
-      <nav class="nav">
-        <a class="navLink active" href="#">Home</a>
-        <a class="navLink" href="#books">Our Books</a>
-        <a class="navLink" href="#reviews">Reviews</a>
-        <a class="navLink" href="#faq">FAQ</a>
-        <a class="navLink" href="#account">My Account</a>
-      </nav>
+    <div class="brand">
+      ⭐ <span>My Magic Story Book</span>
     </div>
+
+    <nav>
+      <a class="active" href="#">Home</a>
+      <a href="#">Our Books</a>
+      <a href="#">Reviews</a>
+      <a href="#">FAQ</a>
+      <a href="#">My Account</a>
+    </nav>
   </header>
 
   <!-- HERO -->
   <section class="hero">
-    <div class="wrap">
-      <div class="heroCard">
-        <div class="heroGrid">
-          <div class="heroLeft">
-            <div class="kicker">PERSONALIZED STORIES</div>
-            <h1 class="h1">
-              Create a<br>
-              <span class="gold">Personalized</span><br>
-              Storybook
-            </h1>
+    <div class="heroOverlay">
 
-            <p class="lead">
-              Where your child becomes the hero of a magical adventure.
-              Upload a photo, pick a theme, preview the book, and download your PDF.
-            </p>
+      <div class="heroGrid">
 
-            <div class="ctaRow">
-              <button class="btnPrimary">Create Your Book</button>
-              <button class="btnGhost">Browse Themes</button>
-            </div>
+        <!-- TEXTO -->
+        <div class="heroLeft">
+          <h1>
+            Create a <span>Personalized</span><br/>
+            Storybook
+          </h1>
 
-            <div class="actionGrid">
-              <button class="actionBtn"><span class="emoji">📖</span>Choose a Story</button>
-              <button class="actionBtn"><span class="emoji">📷</span>Upload &amp; Personalize</button>
-              <button class="actionBtn"><span class="emoji">👀</span>Preview</button>
-              <button class="actionBtn"><span class="emoji">⬇️</span>Download PDF</button>
-            </div>
+          <p>
+            Where your child becomes the hero of a magical adventure.
+            Upload a photo, pick a theme, preview the book, and download your PDF.
+          </p>
+
+          <div class="heroButtons">
+            <button class="primary">Create Your Book</button>
+            <button class="secondary">Browse Themes</button>
           </div>
 
-          <div class="heroRight">
-            <!-- IMAGEM DO LIVRO ABERTO -->
-            <img class="heroImg" src="/hero.jpg" alt="My Magic Story Book" />
+          <div class="heroSteps">
+            <div>📘 Choose a Story</div>
+            <div>📸 Upload & Personalize</div>
+            <div>👀 Preview</div>
+            <div>⬇️ Download PDF</div>
           </div>
         </div>
+
+        <!-- IMAGEM -->
+        <div class="heroRight">
+          <img src="/hero.jpg" alt="Storybook Preview">
+        </div>
+
       </div>
+
     </div>
   </section>
 
-  <!-- THEMES -->
-  <section id="books" class="themes">
-    <div class="wrap">
-      <div class="sectionTitle">
-        <h2>Enchanting Stories For Every Child</h2>
-        <p>Select the perfect story theme and make your child the hero!</p>
-      </div>
-
-      <div class="themesGrid">
-        <!-- 1 -->
-        <a class="themeCard" href="#">
-          <img class="themeThumb" src="/themes/magical-adventure.jpg" alt="Magical Adventure" />
-          <div class="themeName">Magical Adventure</div>
-        </a>
-
-        <!-- 2 -->
-        <a class="themeCard" href="#">
-          <img class="themeThumb" src="/themes/dreamland-journey.jpg" alt="Dreamland Journey" />
-          <div class="themeName">Dreamland Journey</div>
-        </a>
-
-        <!-- 3 -->
-        <a class="themeCard" href="#">
-          <img class="themeThumb" src="/themes/under-the-sea.jpg" alt="Under the Sea" />
-          <div class="themeName">Under the Sea</div>
-        </a>
-
-        <!-- 4 -->
-        <a class="themeCard" href="#">
-          <img class="themeThumb" src="/themes/space-explorer.jpg" alt="Space Explorer" />
-          <div class="themeName">Space Explorer</div>
-        </a>
-
-        <!-- 5 -->
-        <a class="themeCard" href="#">
-          <img class="themeThumb" src="/themes/kingdom-of-animals.jpg" alt="Kingdom of Animals" />
-          <div class="themeName">Kingdom of Animals</div>
-        </a>
-
-        <!-- 6 -->
-        <a class="themeCard" href="#">
-          <img class="themeThumb" src="/themes/numbers-quest.jpg" alt="Numbers Quest" />
-          <div class="themeName">Numbers Quest</div>
-        </a>
-
-        <!-- 7 -->
-        <a class="themeCard" href="#">
-          <img class="themeThumb" src="/themes/bedtime-adventure.jpg" alt="Bedtime Adventure" />
-          <div class="themeName">Bedtime Adventure</div>
-        </a>
-
-        <!-- 8 -->
-        <a class="themeCard" href="#">
-          <img class="themeThumb" src="/themes/amazing-safari.jpg" alt="Amazing Safari" />
-          <div class="themeName">Amazing Safari</div>
-        </a>
-      </div>
-
-      <div class="bigCta">
-        <button class="btnPrimary btnBig">Create Yours Now →</button>
-      </div>
-    </div>
-  </section>
-
-  <footer class="footer">
-    <div class="wrap">© My Magic Story Book</div>
-  </footer>
 </body>
 </html>
