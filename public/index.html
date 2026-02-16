@@ -3,155 +3,168 @@
 <head>
   <meta charset="UTF-8" />
   <title>My Magic Story Book</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <style>
     body {
       margin: 0;
       font-family: "Georgia", serif;
-      background: linear-gradient(#eaf6ff, #ffffff);
-      color: #2c3e50;
+      background: #f6f7fb;
+      color: #24324a;
     }
 
-    header {
-      background: #fdfefe;
-      padding: 16px 24px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      box-shadow: 0 2px 10px rgba(0,0,0,.05);
-    }
-
-    header h1 {
-      font-size: 20px;
-      margin: 0;
-    }
-
-    nav a {
-      margin-left: 16px;
-      text-decoration: none;
-      color: #2c3e50;
-      font-weight: 500;
-    }
-
+    /* HERO */
     .hero {
-      padding: 40px 20px;
-      text-align: center;
-      background: linear-gradient(#e3f2fd, #ffffff);
+      background-image: url('/storybook-bg.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      padding: 80px 20px;
     }
 
-    .hero h2 {
-      font-size: 36px;
-      margin-bottom: 12px;
+    .hero-card {
+      max-width: 720px;
+      margin: auto;
+      background: rgba(255,255,255,0.88);
+      border-radius: 24px;
+      padding: 40px 32px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.12);
     }
 
-    .hero h2 span {
-      color: #d4af37;
+    .hero h1 {
+      font-size: 42px;
+      margin: 0 0 12px;
+      line-height: 1.2;
+    }
+
+    .hero h1 span {
+      color: #d4a94f;
     }
 
     .hero p {
       font-size: 18px;
-      max-width: 600px;
-      margin: 0 auto 24px;
+      line-height: 1.6;
+      margin-bottom: 28px;
     }
 
-    .btn {
-      background: linear-gradient(#f7d774, #d4af37);
-      color: #1f2d3d;
+    .buttons {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #f0c96b, #d4a94f);
+      color: #1f2a44;
       padding: 14px 28px;
-      border-radius: 30px;
-      text-decoration: none;
+      border-radius: 999px;
       font-weight: bold;
-      display: inline-block;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
     }
 
-    .hero img {
-      margin-top: 30px;
-      width: 100%;
-      max-width: 600px;
-      border-radius: 20px;
-      box-shadow: 0 20px 40px rgba(0,0,0,.15);
+    .btn-secondary {
+      background: #fff;
+      border: 2px solid #e5e7eb;
+      padding: 14px 28px;
+      border-radius: 999px;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 16px;
     }
 
+    /* SECTION */
     .section {
-      padding: 60px 20px;
+      padding: 80px 20px;
       text-align: center;
     }
 
-    .section h3 {
-      font-size: 32px;
-      margin-bottom: 10px;
+    .section h2 {
+      font-size: 40px;
+      margin-bottom: 12px;
     }
 
     .section p {
       font-size: 18px;
-      margin-bottom: 40px;
+      color: #5b667a;
+      margin-bottom: 50px;
     }
 
+    /* GRID */
     .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 30px;
       max-width: 1100px;
       margin: auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 24px;
     }
 
     .card {
-      background: white;
-      border-radius: 24px;
-      overflow: hidden;
-      box-shadow: 0 15px 30px rgba(0,0,0,.08);
+      background: #fff;
+      border-radius: 22px;
+      padding: 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
     }
 
     .card img {
       width: 100%;
-      height: 260px;
+      border-radius: 16px;
+      aspect-ratio: 1 / 1;
       object-fit: cover;
     }
 
-    .card h4 {
-      padding: 16px;
-      margin: 0;
-      font-size: 20px;
+    .card h3 {
+      margin: 14px 0 4px;
     }
   </style>
 </head>
 
 <body>
 
-<header>
-  <h1>⭐ My Magic Story Book</h1>
-  <nav>
-    <a href="#">Home</a>
-    <a href="#">Our Books</a>
-    <a href="#">Reviews</a>
-    <a href="#">FAQ</a>
-  </nav>
-</header>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-card">
+      <h1>Create a <span>Personalized</span> Storybook</h1>
+      <p>
+        Where your child becomes the hero of a magical adventure.
+        Upload a photo, pick a theme, preview the book, and download your PDF.
+      </p>
 
-<section class="hero">
-  <h2>Create a <span>Personalized</span> Storybook</h2>
-  <p>Where your child becomes the hero of a magical adventure.</p>
-  <a class="btn" href="#">Create Your Book</a>
-  <br/>
-  <img src="/hero.jpg" alt="Hero Image">
-</section>
+      <div class="buttons">
+        <button class="btn-primary">Create Your Book</button>
+        <button class="btn-secondary">Browse Themes</button>
+      </div>
+    </div>
+  </section>
 
-<section class="section">
-  <h3>Enchanting Stories For Every Child</h3>
-  <p>Select the perfect story theme and make your child the hero!</p>
+  <!-- THEMES -->
+  <section class="section">
+    <h2>Enchanting Stories For Every Child</h2>
+    <p>Select the perfect story theme and make your child the hero!</p>
 
-  <div class="grid">
-    <div class="card"><img src="/themes/magical-adventure.jpg"><h4>Magical Adventure</h4></div>
-    <div class="card"><img src="/themes/dreamland-journey.jpg"><h4>Dreamland Journey</h4></div>
-    <div class="card"><img src="/themes/under-the-sea.jpg"><h4>Under the Sea</h4></div>
-    <div class="card"><img src="/themes/space-explorer.jpg"><h4>Space Explorer</h4></div>
-    <div class="card"><img src="/themes/kingdom-of-animals.jpg"><h4>Kingdom of Animals</h4></div>
-    <div class="card"><img src="/themes/numbers-quest.jpg"><h4>Numbers Quest</h4></div>
-    <div class="card"><img src="/themes/bedtime-adventure.jpg"><h4>Bedtime Adventure</h4></div>
-    <div class="card"><img src="/themes/amazing-safari.jpg"><h4>Amazing Safari</h4></div>
-  </div>
-</section>
+    <div class="grid">
+      <div class="card">
+        <img src="/themes/magical-adventure.jpg" />
+        <h3>Magical Adventure</h3>
+      </div>
+
+      <div class="card">
+        <img src="/themes/dreamland-journey.jpg" />
+        <h3>Dreamland Journey</h3>
+      </div>
+
+      <div class="card">
+        <img src="/themes/under-the-sea.jpg" />
+        <h3>Under the Sea</h3>
+      </div>
+
+      <div class="card">
+        <img src="/themes/space-explorer.jpg" />
+        <h3>Space Explorer</h3>
+      </div>
+    </div>
+  </section>
 
 </body>
 </html>
