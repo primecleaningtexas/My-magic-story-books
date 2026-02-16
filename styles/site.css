@@ -1,0 +1,147 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Georgia", serif;
+  color: #1f2b3a;
+}
+
+/* NAVBAR */
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(255,255,255,0.75);
+  backdrop-filter: blur(8px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 28px;
+}
+
+.topbar .brand {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.topbar nav a {
+  margin-left: 18px;
+  text-decoration: none;
+  color: #1f2b3a;
+  font-weight: 600;
+}
+
+.topbar nav a.active {
+  border-bottom: 2px solid #c9a24d;
+}
+
+/* HERO BACKGROUND */
+.hero {
+  background: url("/storybook-bg.jpg") center/cover no-repeat;
+  min-height: 100vh;
+}
+
+/* OVERLAY TRANSPARENTE */
+.heroOverlay {
+  background: linear-gradient(
+    to bottom,
+    rgba(255,255,255,0.85),
+    rgba(255,255,255,0.55),
+    rgba(255,255,255,0.25)
+  );
+  padding: 60px 20px 80px;
+}
+
+/* GRID */
+.heroGrid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  align-items: center;
+  gap: 40px;
+}
+
+/* TEXTO */
+.heroLeft h1 {
+  font-size: 48px;
+  line-height: 1.1;
+  margin-bottom: 18px;
+}
+
+.heroLeft h1 span {
+  color: #c9a24d;
+}
+
+.heroLeft p {
+  font-size: 18px;
+  max-width: 520px;
+  margin-bottom: 28px;
+}
+
+/* BOTÕES */
+.heroButtons {
+  display: flex;
+  gap: 14px;
+  margin-bottom: 28px;
+}
+
+button {
+  border-radius: 999px;
+  padding: 14px 26px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  border: none;
+}
+
+button.primary {
+  background: linear-gradient(#e2c26b, #c9a24d);
+  color: #1f2b3a;
+}
+
+button.secondary {
+  background: rgba(255,255,255,0.85);
+  border: 1px solid rgba(0,0,0,0.15);
+}
+
+/* STEPS */
+.heroSteps {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.heroSteps div {
+  background: rgba(255,255,255,0.7);
+  border-radius: 14px;
+  padding: 14px;
+  font-weight: 600;
+}
+
+/* IMAGEM */
+.heroRight img {
+  width: 100%;
+  border-radius: 26px;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.25);
+}
+
+/* MOBILE */
+@media (max-width: 900px) {
+  .heroGrid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .heroSteps {
+    grid-template-columns: 1fr;
+  }
+
+  .heroButtons {
+    justify-content: center;
+  }
+}
