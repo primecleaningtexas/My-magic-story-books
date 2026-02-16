@@ -24,17 +24,15 @@ button{ font-family: inherit; }
 .nav a{ font-weight: 700; opacity: .9; }
 .navLinks{ display:flex; gap: 16px; align-items:center; }
 
-.hero{
-  position: relative;
-  margin-top: 12px;
-  border-radius: 26px;
-  overflow: hidden;
-  box-shadow: var(--shadow);
-  border: 1px solid var(--stroke);
-  background: radial-gradient(1200px 700px at 30% 20%, rgba(255,255,255,.88), rgba(255,255,255,.58)),
-              linear-gradient(135deg, rgba(120,160,255,.18), rgba(255,205,140,.14));
+.heroArt {
+  background-image: url('/hero.jpg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 100%;
+  max-width: 520px;
+  height: 420px;
 }
-
 .heroInner{
   display:grid;
   grid-template-columns: 1.2fr 1fr;
